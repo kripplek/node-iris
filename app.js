@@ -12,7 +12,7 @@ var IrisClient = function(config){
 
 //Report an incident
 IrisClient.prototype.incident = function(plan, context){
-    return self.sendReq('incidents', JSON.stringify({plan:plan,context:context}));
+    return self.sendReq('incidents', {plan:plan,context:context});
 }
 
 // Notification are more, "high key" and the behaviors can be very different.
@@ -49,7 +49,7 @@ IrisClient.prototype.notify = function(role, target, subject, priority, mode, bo
                }
              }
         }
-        return self.sendReq('notifications', JSON.stringify(data));
+        return self.sendReq('notifications', data);
 }
 //attaches the headers and sends the request to each call.
 IrisClient.prototype.sendReq= function(path, body){
@@ -60,17 +60,14 @@ IrisClient.prototype.sendReq= function(path, body){
     {
             uri      :`${self.config.url}/${path}`,
             headers  : headers,
-            body     : body
+            body     : JSON.stringify(body)
     },function (error, response, body) {
       if (error || response.status>201) {
-        if(error.code = 'ENETUNREACH'){
-          throw new exceptions.Unavailable(error.message, error.code);
-        }
-        //throw new exceptions.BadResponse('Server returned an error: '+ error);
-        return console.error('failed:', error);
+        throw new exceptions.BadResponse('Server returned an error: '+ error);
       }
       console.log(body);
-      return true;
+      return body;
     });
 }
-module.exports= IrisClient;
+
+module.exports = IrisClient;
