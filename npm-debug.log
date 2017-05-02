@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kylesorrels/.nvm/versions/node/v6.10.2/bin/node',
+1 verbose cli   '/Users/kylesorrels/.nvm/versions/node/v6.10.2/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/kylesorrels/projects/node-iris',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/kylesorrels/.npm/iris/0.0.1/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/kylesorrels/.npm correctMkdir not in flight; initializing
+10 info lifecycle iris@0.0.1~prepublish: iris@0.0.1
+11 silly lifecycle iris@0.0.1~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/kylesorrels/.npm/iris/0.0.1/package.tgz',
+12 verbose tar pack   '/Users/kylesorrels/projects/node-iris' ]
+13 verbose tarball /Users/kylesorrels/.npm/iris/0.0.1/package.tgz
+14 verbose folder /Users/kylesorrels/projects/node-iris
+15 verbose addLocalTarball adding from inside cache /Users/kylesorrels/.npm/iris/0.0.1/package.tgz
+16 verbose correctMkdir /Users/kylesorrels/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd iris@0.0.1
+18 verbose afterAdd /Users/kylesorrels/.npm/iris/0.0.1/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/kylesorrels/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/kylesorrels/.npm/iris/0.0.1/package/package.json written
+21 silly publish { name: 'iris',
+21 silly publish   version: '0.0.1',
+21 silly publish   description: 'NodeJS sender for Iris',
+21 silly publish   main: 'app.js',
+21 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+21 silly publish   keywords: [ 'iris', 'nodejs', 'alert' ],
+21 silly publish   author: { name: 'kyle S' },
+21 silly publish   license: 'MIT',
+21 silly publish   dependencies: { crypto: '0.0.3', request: '^2.81.0' },
+21 silly publish   readme: '# node-iris\nThis is a library for communicating with the [Iris API](https://github.com/linkedin/iris).\n\n### Usage\n\n`npm install node-iris`\n\nUse:\n\n> this will work with the pre-seeded data, created by following the [instructions](https://github.com/linkedin/iris/blob/master/README.md)\n\n```\nvar ic =require(\'./app.js\');\n\nconfig = {\n  app   :  "test-app",\n  key   :  "sdffdssdf",\n  url  :  "http://127.0.0.1:16649/v0"\n}\n\nIrisClient = new ic(config);\ntry{\n  // Create an incident\n  IrisClient.incident(\'demo-test-foo\', {foo:"bar"});\n\n  // create a notification\n  IrisClient.notify(\n      \'demo-test-foo\'\n    );\n}catch(err){\n  //do something with error\n  console.log(err)\n}\n\n\n```\n\n#### Contributing\nLicense is MIT. I really don\'t care how the PR\'s come as long as I can read what the change is and you include a reason why\n\n\n> This project is dedicated to amazing success and talent  of a [#nastyWoman](https://www.astronautjill.space/) [#womenInSTEM](https://twitter.com/search?q=%23womeninstem&src=tyah)\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '3b8000bcd667d8d22480f3bcbade33e43f2e3f04',
+21 silly publish   _id: 'iris@0.0.1',
+21 silly publish   _shasum: '3547f38b923dc14cc99c810f1c3c89c8f4f8a0b5',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name iris
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'iris',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'iris',
+26 silly mapToRegistry   name: 'iris',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/iris
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/kylesorrels/.npm/iris/0.0.1/package.tgz
+30 verbose request uri https://registry.npmjs.org/iris
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 3:58:24 PM
+33 verbose request using bearer token for auth
+34 verbose request id 44bb1a2cdf5028e6
+35 http request PUT https://registry.npmjs.org/iris
+36 http 403 https://registry.npmjs.org/iris
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '98',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Tue, 02 May 2017 22:58:25 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-sjc3620-SJC',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1493765905.012027,VS0,VE96',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /Users/kylesorrels/.npm/registry.npmjs.org/iris on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: you do not have permission to publish "iris". Are you logged in as the correct user? : iris
+40 verbose stack     at makeError (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/Users/kylesorrels/.nvm/versions/node/v6.10.2/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid iris
+43 verbose cwd /Users/kylesorrels/projects/node-iris
+44 error Darwin 16.5.0
+45 error argv "/Users/kylesorrels/.nvm/versions/node/v6.10.2/bin/node" "/Users/kylesorrels/.nvm/versions/node/v6.10.2/bin/npm" "publish"
+46 error node v6.10.2
+47 error npm  v3.10.10
+48 error code E403
+49 error you do not have permission to publish "iris". Are you logged in as the correct user? : iris
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]

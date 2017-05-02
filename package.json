@@ -1,5 +1,5 @@
 {
-  "name": "node-iris",
+  "name": "iris",
   "version": "0.0.1",
   "description": "NodeJS sender for Iris",
   "main": "app.js",
@@ -12,5 +12,9 @@
     "alert"
   ],
   "author": "kyle S",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "request": "^2.81.0"
+  }
 }

@@ -54,7 +54,7 @@ IrisClient.prototype.notify = function(role, target, subject, priority, mode, bo
 //attaches the headers and sends the request to each call.
 IrisClient.prototype.sendReq= function(path, body){
   var words =`${(new Date).getTime()/5} POST ${path} ${body}`;
-  var headers= {'AUTHORIZATION': `hmac:${self.config.app}:${crypto.createHmac('sha512', self.config.key).update(words).digest('base64')}`};
+  var headers= {'AUTHORIZATION': `hmac ${self.config.app}:${crypto.createHmac('sha512', self.config.key).update(words).digest('base64')}`};
 
   r = request.post(
     {
