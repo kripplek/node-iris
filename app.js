@@ -53,16 +53,19 @@ IrisClient.prototype.notify = function(role, target, subject, priority, mode, bo
 }
 //attaches the headers and sends the request to each call.
 IrisClient.prototype.sendReq= function(path, body){
-  var words =`${(new Date).getTime()/5} POST ${path} ${body}`;
-  var headers= {'AUTHORIZATION': `hmac ${self.config.app}:${crypto.createHmac('sha512', self.config.key).update(words).digest('base64')}`};
+  var path = `${VERSION_PREFIX}/${path}`;
+  var body = JSON.stringify(body);
+  var words =`${Math.floor(Math.round((new Date()).getTime() / 1000) / 5) - 1} POST ${path} ${body}`;
+  var hmac = `hmac ${self.config.app}:${crypto.createHmac('sha512', self.config.key).update(words).digest('base64').replace(/\+/g, '-').replace(/\//g, '_')}`;
+  var headers = {'AUTHORIZATION': hmac};
 
   r = request.post(
     {
-            uri      :`${self.config.url}${VERSION_PREFIX}/${path}`,
+            uri      :`${self.config.url}${path}`,
             headers  : headers,
-            body     : JSON.stringify(body)
+            body     : body
     },function (error, response, body) {
-      if (error || response.status>201) {
+      if (error || response.statusCode>201) {
         throw new exceptions.BadResponse('Server returned an error: '+ error);
       }
       console.log(body);
