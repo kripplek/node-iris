@@ -15,7 +15,7 @@ var ic =require('./app.js');
 config = {
   app   :  "test-app",
   key   :  "sdffdssdf",
-  url  :  "http://127.0.0.1:16649/v0"
+  url  :  "http://127.0.0.1:16649/"
 }
 
 IrisClient = new ic(config);
