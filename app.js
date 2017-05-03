@@ -2,7 +2,7 @@ var request = require('request'),
     crypto  = require('crypto'),
     exceptions = require('./exceptions');
 
-const VERSION = "1.0.0";
+const VERSION_PREFIX = "/v0";
 
 var IrisClient = function(config){
     this.config = config;
@@ -58,7 +58,7 @@ IrisClient.prototype.sendReq= function(path, body){
 
   r = request.post(
     {
-            uri      :`${self.config.url}/${path}`,
+            uri      :`${self.config.url}${VERSION_PREFIX}/${path}`,
             headers  : headers,
             body     : JSON.stringify(body)
     },function (error, response, body) {
