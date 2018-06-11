@@ -3,7 +3,7 @@ This is a library for communicating with the [Iris API](https://github.com/linke
 
 ### Usage
 
-`npm install node-iris`
+`npm install iris-client`
 
 Use:
 
