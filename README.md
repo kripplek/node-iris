@@ -3,22 +3,22 @@ This is a library for communicating with the [Iris API](https://github.com/linke
 
 ### Usage
 
-`npm install node-iris`
+`npm install iris-client`
 
 Use:
 
-> this will work with the pre-seeded data, created by following the [instructions](https://github.com/linkedin/iris/blob/master/README.md)
+> This will work with the pre-seeded data, created by following the [instructions](https://github.com/linkedin/iris/blob/master/README.md)
 
 ```
-var ic =require('./app.js');
+const  ic =require('./app.js');
 
-config = {
+const config = {
   app   :  "test-app",
   key   :  "sdffdssdf",
   url  :  "http://127.0.0.1:16649/"
 }
 
-IrisClient = new ic(config);
+const IrisClient = new ic(config);
 try{
   // Create an incident
   IrisClient.incident('demo-test-foo', {foo:"bar"});
@@ -34,6 +34,10 @@ try{
 
 
 ```
+
+### Notes
+The url specified needs to hit the iris API not the iris relay. The relay can only respond to and handle existing incedents. The relay cannot create new incidents.
+
 
 #### Contributing
 License is MIT. I really don't care how the PR's come as long as I can read what the change is and you include a reason why
